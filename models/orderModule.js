@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var company = require('mongoose').model('Company').schema;
-var orderitem = require('mongoose').model('OrderItem').schema;
+//var orderitem = require('mongoose').model('OrderItem').schema;
 
 const orderSchema = mongoose.Schema({
 
@@ -15,11 +15,12 @@ const orderSchema = mongoose.Schema({
     },
     Priority : {
         type : String
-    },
-    orderItems : [{
-      type: orderitem,
-      ref: 'OrderItem'
-    }]
+    }
+    // ,
+    // orderItems : [{
+    //   type: orderitem,
+    //   ref: 'OrderItem'
+    // }]
 
 
 });
