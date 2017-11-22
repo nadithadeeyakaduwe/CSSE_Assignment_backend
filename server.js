@@ -18,13 +18,14 @@ mongoose.promese = global.Promise;
     app.use(bodyparser.urlencoded({extended : true}));
     app.use(bodyparser.json());
     app.use(cors());
-    app.use('/api',require('./Routes/BearRoute'));
+    //app.use('/api',require('./Routes/BearRoute'));
     app.use('/procument',require('./Routes/companyRoute'));
     app.use('/procument',require('./Routes/productRoute'));
     app.use('/procument',require('./Routes/orderRoute'));
-    
+    app.use('/procument',require('./Routes/userRoutes'));
 
-app.listen(4000,function (err) {
+
+app.listen(8080,function (err) {
    if(err){
        console.log("server not listing");
    }
