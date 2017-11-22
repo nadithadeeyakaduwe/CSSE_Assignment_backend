@@ -6,8 +6,8 @@ const SupplierSchema = mongoose.Schema({
         required : [true,'Name mandatory'],
         unique : true
     },
-    supplierID : {
-        type : String
+    Address :{
+        type : String,
     },
     contactNumber : {
         landline : {
@@ -16,6 +16,9 @@ const SupplierSchema = mongoose.Schema({
         Mobile : {
           type : Number
         }
+    },
+    email : {
+        type : String
     }
 
 

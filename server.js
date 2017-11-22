@@ -22,7 +22,7 @@ mongoose.promese = global.Promise;
     app.use('/procument',require('./Routes/companyRoute'));
     app.use('/procument',require('./Routes/productRoute'));
     app.use('/procument',require('./Routes/orderRoute'));
-    
+    app.use('/procument',require('./Routes/supplierRoute'));
 
 app.listen(4000,function (err) {
    if(err){
