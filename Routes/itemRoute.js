@@ -1,5 +1,5 @@
 const express = require('express');
-const order = require('../models/orderModule')
+const item = require('../models/itemModule')
 const router = express.Router();
 var nodemailer = require('nodemailer');
 
@@ -9,37 +9,33 @@ router.use(function (req,res,next) {
 });
 
 router.get('/',function(req,res){
-    res.json({message: 'welcome to product routes'});
+    res.json({message: 'welcome to item routes'});
 });
 
-router.route('/order')
+router.route('/item')
     .get(function (req,res) {
-        order.find(function(err,ordr){
+        item.find(function(err,item){
             if(err){
                 console.log(err);
             }
-            res.json(ordr);
+            res.json(item);
         });
 
     });
 
 
-    router.route('/order')
+    router.route('/item')
         .post(function(req, res) {
-            var ordr = new order(req.body);
-
-            ordr.save(function(err) {
+            var item = new item(req.body);      
+           
+            item.save(function(err) {
                 if (err)
                     res.send(err);
                 else
-                    res.json({ message: 'product created!' });
+                    res.json({ message: 'item created!' });
             });
-
+    
         });
-
-
-
-
 
 
 module.exports= router;
