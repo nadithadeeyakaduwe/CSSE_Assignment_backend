@@ -24,10 +24,14 @@ mongoose.promese = global.Promise;
     
     app.use('/procument',require('./Routes/supplierRoute'));
     app.use('/procument',require('./Routes/userRoutes'));
+<<<<<<< HEAD
+    app.use('/procument',require('./Routes/invoiceRoute'));
+=======
     app.use('/procument',require('./Routes/siteRoute'));
     app.use('/procument',require('./Routes/itemRoute'));
     app.use('/procument',require('./Routes/orderRoute2'));
     app.use('/procument',require('./Routes/placeOrderRoute'));
+>>>>>>> 5e53c9df648eb7cc2714e1bd7acee989438436fe
 
 app.listen(4000,function (err) {
    if(err){

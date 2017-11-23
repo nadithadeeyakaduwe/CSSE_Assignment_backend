@@ -1,29 +1,30 @@
 var mongoose = require('mongoose');
-var site = require('mongoose').model('Site').schema;
-var order2 = require('mongoose').model('Orders2').schema;
-var item = require('mongoose').model('Item').schema;
-//var orderitem = require('mongoose').model('OrderItem').schema;
+//var sequenceGenerator = require('mongoose-sequence-plugin');
+//var autoIncrement = require('mongoose-auto-increment');
+//import autoIncrement from 'mongoose-easy-auto-increment';
+var autoIncrement = require('mongoose-easy-auto-increment');
+
 
 const invoiceSchema = mongoose.Schema({
 
-    invoiceID :{
-        type : Number,
-        required : [true,'invoiceID mandatory'],
-        unique: true
-    },  
     Site : {
-        type: site,
-        ref: 'Site'
+        type: String
     },
-    Items : {
-        type: [item],
-        ref: 'Item'
-    },
+    Items : [{
+        type: String
+    }],
     Order : {
-        type: order2,
-        ref: 'Orders2'
+        type: Number
     },
+    totalAmount : {
+      type : Number
+    }
 
 });
+
+
+invoiceSchema.plugin(autoIncrement, {field : 'invoiceID'});
+
+
 
 module.exports = mongoose.model('Invoice',invoiceSchema);
