@@ -6,7 +6,7 @@ const SiteSchema = mongoose.Schema({
         required : [true,'ID mandatory'],
         unique : true
     },
-    siteaddress : {
+    siteAddress : {
         type : String
     },
     siteContact : {
@@ -16,7 +16,10 @@ const SiteSchema = mongoose.Schema({
         mobile : {
           type : Number
         }
-    }
+    },
+    siteEmail : {
+        type : String
+    },
 });
 
 module.exports = mongoose.model('Site',SiteSchema);
