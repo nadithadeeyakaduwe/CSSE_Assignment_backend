@@ -18,15 +18,25 @@ const orderSchema2 = mongoose.Schema({
     requiredDate : {
         type : Date
     },
-    orderStatus : {
+    orderStatusBySM : {
         type : String,
         default: ''
-        //pending,inprogress,resloved,closed
+        //pending, inprogress, resloved, closed
+    },
+    orderStatusBySup : {
+        type : String,
+        default: ''
+        //Accepted, Rejected
+    },
+    orderStatusByUprM : {
+        type : String,
+        default: "Accepted"
+        // Accepted, Rejected
     },
     orderType : {
         type : String,
-        default: "Accepted"
-        //HigherBill , Special, Accepted, Rejected
+        default : "Normal"
+        //HigherBill , Special, Normal
     },
     Supplier : {
         type: supplier,
@@ -43,4 +53,4 @@ const orderSchema2 = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('orders2',orderSchema2);
+module.exports = mongoose.model('Orders2',orderSchema2);
