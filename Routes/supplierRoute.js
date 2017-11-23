@@ -37,13 +37,27 @@ router.route('/supplier/:id')
     .put(function (req, res) {
         console.log("supplier updating");
         suppliers.findByIdAndUpdate(
-            {_id:req.params.id},
+            { _id: req.params.id },
             req.body
         ).then(function () {
-            suppliers.findOne({_id: req.params.id}).then(function (response) {
+            suppliers.findOne({ _id: req.params.id }).then(function (response) {
                 res.send(response);
             });
 
+        });
+
+    });
+
+router.route('/supplier/name/:name')
+    .get(function (req, res) {
+        var name = req.params.name;
+        suppliers.findOne({
+            'supplierName': name
+        }, function (err, supplier) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(supplier);
         });
 
     });

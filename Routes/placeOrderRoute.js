@@ -92,4 +92,35 @@ router.route('/placeOrder/date/:date')
 
     });
 
+
+router.route('/placeOrder/orderId/:id')
+    .put(function (req, res) {
+
+        placeOrder.findOneAndUpdate(
+            { OrderID: req.params.id },
+            req.body
+        ).then(function () {
+            placeOrder.findOne({ OrderID: req.params.id }).then(function (response) {
+                res.send(response);
+            });
+
+        });
+
+    });
+
+router.route('/placeOrder/Id/:id')
+    .put(function (req, res) {
+
+        placeOrder.findByIdAndUpdate(
+            { _id: req.params.id },
+            req.body
+        ).then(function () {
+            placeOrder.findOne({ _id: req.params.id }).then(function (response) {
+                res.send(response);
+            });
+
+        });
+
+    });
+
 module.exports = router;
