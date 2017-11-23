@@ -21,9 +21,13 @@ mongoose.promese = global.Promise;
     app.use('/api',require('./Routes/BearRoute'));
     app.use('/procument',require('./Routes/companyRoute'));
     app.use('/procument',require('./Routes/productRoute'));
-    app.use('/procument',require('./Routes/orderRoute'));
+    
     app.use('/procument',require('./Routes/supplierRoute'));
     app.use('/procument',require('./Routes/userRoutes'));
+    app.use('/procument',require('./Routes/siteRoute'));
+    app.use('/procument',require('./Routes/itemRoute'));
+    app.use('/procument',require('./Routes/orderRoute2'));
+    app.use('/procument',require('./Routes/placeOrderRoute'));
 
 app.listen(4000,function (err) {
    if(err){

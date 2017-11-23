@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var site = require('mongoose').model('Site').schema;
 var supplier = require('mongoose').model('Supplier').schema;
+var site = require('mongoose').model('Site').schema;
 var item = require('mongoose').model('Item').schema;
 //var orderitem = require('mongoose').model('OrderItem').schema;
 
