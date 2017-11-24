@@ -11,11 +11,14 @@ const ItemSchema = mongoose.Schema({
         type : String
     },
     category : {
-        type : String
+        type : String,
+        default: 'Normal'
+        //special,normal
     },
     unitPrice : {
         type : Number
     }
+   
 });
 
 module.exports = mongoose.model('Item', ItemSchema);
