@@ -37,6 +37,21 @@ router.route('/site')
     
         });
 
+    router.route('/site/siteName/:siteName')
+        .get(function (req,res) {
+            var sName = req.params.siteName;
+            site.find({
+                'siteName':sName
+            },function(err,sit){
+                
+                if(err){
+                    console.log(err);
+                }
+                res.json(sit);
+            });
+    
+        });        
+
 
 
 
