@@ -67,7 +67,7 @@ router.route('/placeOrder/supplier/:supplier')
 router.route('/placeOrder/id/:id')
     .get(function (req, res) {
         var id = req.params.id;
-        placeOrder.findOne({
+        placeOrder.find({
             'OrderID': id
         }, function (err, order) {
             if (err) {
@@ -128,6 +128,21 @@ router.route('/placeOrder/orderType/:type')
         var type = req.params.type;
         placeOrder.find({
             'orderType': type
+        },
+            function (err, order) {
+                if (err) {
+                    console.log(err);
+                }
+                res.json(order);
+            });
+
+    });
+
+router.route('/placeOrder/Oid/:id')
+    .get(function (req, res) {
+        var id = req.params.id;
+        placeOrder.find({
+            '_id': id
         }, function (err, order) {
             if (err) {
                 console.log(err);
@@ -174,7 +189,7 @@ router.route('/placeOrder/:orderType/supplier/:supplierName')
 router.route('/placeOrder/:orderType/id/:id')
     .get(function (req, res) {
         var type = req.params.orderType;
-        var id= req.params.id;
+        var id = req.params.id;
         placeOrder.find({
             $and: [{ 'orderType': type },
             { 'OrderID': id }]
@@ -188,10 +203,10 @@ router.route('/placeOrder/:orderType/id/:id')
 
     });
 
-    router.route('/placeOrder/:orderType/date/:date')
+router.route('/placeOrder/:orderType/date/:date')
     .get(function (req, res) {
         var type = req.params.orderType;
-        var date= req.params.date;
+        var date = req.params.date;
         placeOrder.find({
             $and: [{ 'orderType': type },
             { 'requiredDate': date }]
