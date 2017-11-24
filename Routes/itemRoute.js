@@ -26,15 +26,15 @@ router.route('/item')
 
     router.route('/item')
         .post(function(req, res) {
-            var item = new item(req.body);      
-           
-            item.save(function(err) {
+            var items = new item(req.body);
+
+            items.save(function(err) {
                 if (err)
                     res.send(err);
                 else
                     res.json({ message: 'item created!' });
             });
-    
+
         });
 
 
