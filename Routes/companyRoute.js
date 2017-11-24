@@ -26,15 +26,15 @@ router.route('/company')
 
     router.route('/company')
         .post(function(req, res) {
-            var com = new company(req.body);      
-           
+            var com = new company(req.body);
+
             com.save(function(err) {
                 if (err)
                     res.send(err);
                 else
                     res.json({ message: 'Company created!' });
             });
-    
+
         });
 
 

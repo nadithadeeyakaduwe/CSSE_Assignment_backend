@@ -24,6 +24,7 @@ mongoose.promese = global.Promise;
     
     app.use('/procument',require('./Routes/supplierRoute'));
     app.use('/procument',require('./Routes/userRoutes'));
+    app.use('/procument',require('./Routes/invoiceRoute'));
     app.use('/procument',require('./Routes/siteRoute'));
     app.use('/procument',require('./Routes/itemRoute'));
     app.use('/procument',require('./Routes/orderRoute2'));

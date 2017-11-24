@@ -14,6 +14,9 @@
     "cors": "^2.8.3",
     "express": "^4.15.3",
     "mongoose": "^4.10.7",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-easy-auto-increment": "^1.0.1",
+    "mongoose-sequence-plugin": "^1.0.5",
     "nodemailer": "^4.0.1"
   }
 }
