@@ -123,4 +123,18 @@ router.route('/placeOrder/Id/:id')
 
     });
 
+    router.route('/placeOrder/Oid/:id')
+    .get(function (req, res) {
+        var id = req.params.id;
+        placeOrder.find({
+            '_id': id
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
 module.exports = router;
