@@ -123,4 +123,87 @@ router.route('/placeOrder/Id/:id')
 
     });
 
+router.route('/placeOrder/orderType/:type')
+    .get(function (req, res) {
+        var type = req.params.type;
+        placeOrder.find({
+            'orderType': type
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
+router.route('/placeOrder/:orderType/status/:statusBySm')
+    .get(function (req, res) {
+        var type = req.params.orderType;
+        var status = req.params.statusBySm;
+        placeOrder.find({
+            $and: [{ 'orderType': type },
+            { 'orderStatusBySM': status }]
+
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
+router.route('/placeOrder/:orderType/supplier/:supplierName')
+    .get(function (req, res) {
+        var type = req.params.orderType;
+        var supplier = req.params.supplierName;
+        placeOrder.find({
+            $and: [{ 'orderType': type },
+            { 'supplierName': supplier }]
+
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
+router.route('/placeOrder/:orderType/id/:id')
+    .get(function (req, res) {
+        var type = req.params.orderType;
+        var id= req.params.id;
+        placeOrder.find({
+            $and: [{ 'orderType': type },
+            { 'OrderID': id }]
+
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
+    router.route('/placeOrder/:orderType/date/:date')
+    .get(function (req, res) {
+        var type = req.params.orderType;
+        var date= req.params.date;
+        placeOrder.find({
+            $and: [{ 'orderType': type },
+            { 'requiredDate': date }]
+
+        }, function (err, order) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(order);
+        });
+
+    });
+
+
 module.exports = router;
