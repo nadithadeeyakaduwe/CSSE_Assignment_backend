@@ -153,6 +153,23 @@ router.route('/placeOrder/Oid/:id')
 
     });
 
+    router.route('/placeOrder/uppermanagerstatus/:orderStatusByUprM')
+        .get(function (req, res) {
+            var status = req.params.orderStatusByUprM;
+            placeOrder.find({
+                'orderStatusByUprM': status
+            }, function (err, order) {
+                if (err) {
+                    console.log(err);
+                }
+                res.json(order);
+            });
+
+        });
+
+
+
+
 router.route('/placeOrder/:orderType/status/:statusBySm')
     .get(function (req, res) {
         var type = req.params.orderType;

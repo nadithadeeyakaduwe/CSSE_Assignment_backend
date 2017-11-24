@@ -81,7 +81,10 @@ const placeOrderSchema = mongoose.Schema({
         quantity :{
             type : Number
         }
-    }]
+    }],
+    TotalAmount : {
+        type : Number
+    },
 
 });
 
