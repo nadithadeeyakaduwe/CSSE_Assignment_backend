@@ -124,6 +124,23 @@ router.route('/placeOrder/Id/:id')
 
     });
 
+
+    router.route('/placeOrder/supplierstatus/:id')
+        .put(function (req, res) {
+
+            placeOrder.findByIdAndUpdate(
+                { OrderID: req.params.id },
+                req.body
+            ).then(function () {
+                placeOrder.findOne({ _id: req.params.id }).then(function (response) {
+                    res.send(response);
+                });
+
+            });
+
+        });
+
+
 router.route('/placeOrder/orderType/:type')
     .get(function (req, res) {
         var type = req.params.type;
