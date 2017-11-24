@@ -27,8 +27,7 @@ router.route('/item')
     router.route('/item')
         .post(function(req, res) {
             var items = new item(req.body);
-
-            items.save(function(err) {
+            item.save(function(err) {
                 if (err)
                     res.send(err);
                 else
