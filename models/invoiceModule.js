@@ -10,14 +10,29 @@ const invoiceSchema = mongoose.Schema({
     Site : {
         type: String
     },
-    Items : [{
-        type: String
-    }],
+    date : {
+      type : Date,
+      default : Date.now
+    },
     Order : {
         type: Number
     },
-    totalAmount : {
+    Item : {
+        type: String
+    },
+    qty : {
+        type: Number
+    },
+    unitPrice : {
+        type: Number
+    },
+    Amount : {
       type : Number
+    },
+    Status : {
+      type : String,
+      default : 'Rejected'
+      //accepted or rejected by accountent
     }
 
 });

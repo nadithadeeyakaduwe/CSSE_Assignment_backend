@@ -15,6 +15,7 @@ router.get('/', function (req, res) {
 router.route('/placeOrder')
     .get(function (req, res) {
         placeOrder.find(function (err, ordr) {
+          console.log("place Order trigred");
             if (err) {
                 console.log(err);
             }
