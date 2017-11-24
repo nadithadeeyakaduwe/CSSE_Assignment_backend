@@ -51,7 +51,7 @@ router.route('/supplier/:id')
 router.route('/supplier/name/:name')
     .get(function (req, res) {
         var name = req.params.name;
-        suppliers.findOne({
+        suppliers.find({
             'supplierName': name
         }, function (err, supplier) {
             if (err) {
