@@ -67,7 +67,7 @@ router.route('/placeOrder/supplier/:supplier')
 router.route('/placeOrder/id/:id')
     .get(function (req, res) {
         var id = req.params.id;
-        placeOrder.findOne({
+        placeOrder.find({
             'OrderID': id
         }, function (err, order) {
             if (err) {
